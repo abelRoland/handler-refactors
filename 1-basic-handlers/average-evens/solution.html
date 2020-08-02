@@ -27,15 +27,33 @@
      *
      */
     const averageEvens = (arrOfNumbers) => {
+      
+      if (Array.isArray(arrOfNumbers) == false) {
+        throw new TypeError('arrOfNumbers is not an array');
+      }
+      
       for (let numbers of arrOfNumbers) 
       
       if (typeof numbers !== 'number') { 
         throw new TypeError('arrOfNumbers does not contain only numbers'); 
         }
-      if (Array.isArray(arrOfNumbers) == false) {
-        throw new TypeError('arrOfNumbers is not an array');
-      }
+      
+        // execute core logic
+      let howManyEvens = 0;
+      let sumOfEvens = 0;
+      for (const num of arrOfNumbers) {
+        if (num % 2 === 0) {
+          sumOfEvens = sumOfEvens + num;
+          howManyEvens = howManyEvens + 1;
+        }
+      };
+      const average = howManyEvens === 0
+        ? 0
+        : sumOfEvens / howManyEvens;
 
+      // communicate result to user
+      return average;
+    
 
     };
    

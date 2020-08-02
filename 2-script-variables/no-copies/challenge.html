@@ -32,11 +32,23 @@
      *
      */
     const saveNoCopies = (arr, newEntry) => {
-      if (_) { _; }
-      if (_) { _; }
+      if (Array.isArray(arr) === false) { throw new TypeError('arr is not an array'); }
+      const newArray = [...arr];
+      for (let items of arr) {
+            if (typeof items !== 'string') { 
+                throw new TypeError('arr is not an array of strings'); 
+            }    
+        };
 
+        let checkItem = arr.includes(newEntry);
+
+        if (checkItem === false) {
+              newArray.push(newEntry);
+            }
+        return newArray;
 
     };
+
 
     describe('saveNoCopies: ', () => {
       describe('saveNoCopies: adds a new item to an array if it\'s not saved', () => {
@@ -82,6 +94,7 @@
         });
       });
     });
+    
   </script>
   <script id='handler'>
     'use strict';
