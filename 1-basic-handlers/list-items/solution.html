@@ -27,6 +27,9 @@
      *
      */
     const list = (arrOfItems) => {
+        
+        // Check for errors
+
         for (let items of arrOfItems) {
             if (typeof items !== 'string') { 
                 throw new TypeError('arrOfItems does not contain only strings'); 
@@ -35,6 +38,15 @@
         if (!Array.isArray(arrOfItems)) {
         throw new TypeError('arrOfItems is not an array');
       }
+
+      // execute core logic
+      let stringList = '';
+      for (const input of arrOfItems) {
+        stringList += `\n- ${input}`;
+      };
+
+      // communicate result to user
+      return stringList;
 
     };
 
